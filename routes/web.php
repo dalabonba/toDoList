@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/'  , function () {
     return view('welcome');
 });
 
-Route::any('/test',[\App\Http\Controllers\testController::class,'test']);
+Route::get('/test',[\App\Http\Controllers\testController::class,'test']);
+
