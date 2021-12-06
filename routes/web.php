@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/'  , function () {
-    return view('welcome');
-});
+Route::get('/'  , [\App\Http\Controllers\toDoController::class,'index']);
+Route::get('/create',[\App\Http\Controllers\toDoController::class,'create']);
+Route::get('/store',[\App\Http\Controllers\toDoController::class,'store'])->name('store');
+
 
 Route::get('/test',[\App\Http\Controllers\testController::class,'test']);
 
