@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/'  , [\App\Http\Controllers\toDoController::class,'index']);
-Route::get('/create',[\App\Http\Controllers\toDoController::class,'create']);
-Route::get('/store',[\App\Http\Controllers\toDoController::class,'store'])->name('store');
+Route::get('/'  , [\App\Http\Controllers\toDoController::class,'index'])->name('index');
+Route::get('/create',[\App\Http\Controllers\toDoController::class,'getCreatePage'])->name('getCreatePage');
+Route::post('/create',[\App\Http\Controllers\toDoController::class,'storeCreateData'])->name('storeCreateData');
+Route::get('/delete',[\App\Http\Controllers\toDoController::class,'delete'])->name('delete');
 
 
 Route::get('/test',[\App\Http\Controllers\testController::class,'test']);
