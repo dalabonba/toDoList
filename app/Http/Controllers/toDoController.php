@@ -13,12 +13,29 @@ class toDoController extends Controller
             //dd($data);
         return view('pages.index',compact('data',$data));
     }
-    public function create()
+    public function getCreatePage()
     {
         return view('pages.create');
     }
-    public function store(Request $request)
+    public function storeCreateData(Request $request)
     {
-        dd($request);
+        $title = $request->title;
+        $content=$request->content;
+        $remark=$request->remark;
+
+        DB::table('todos')->insert([
+           'title'=>$title,
+           'content'=>$content,
+           'remark'=>$remark
+        ]);
+
+        return view('pages.create');
+    }
+    public function delete(Request $request)
+    {
+        $id=$request->delete_id;
+        DB::table('todos')
+            ->where('id',$id)
+            ->delete();
     }
 }
