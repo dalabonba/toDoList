@@ -17,10 +17,18 @@
                 <td>{{$row->content}}</td>
                 <td>{{$row->remark}}</td>
                 <td><button type="button" class="btn btn-outline-success">新增</button>
-                    <button type="button" class="btn btn-outline-danger" onclick="">刪除</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="deleteData({{$row->id}})">刪除</button>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
+    <div>
+        <script>
+            function deleteData(id) {
+                window.location.href="{{route("deleteData")}}"+"?id="+id;
+            }
+        </script>
+    </div>
 @endsection
