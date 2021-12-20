@@ -16,7 +16,7 @@
                 <td>{{$row->title}}</td>
                 <td>{{$row->content}}</td>
                 <td>{{$row->remark}}</td>
-                <td><button type="button" class="btn btn-outline-success">新增</button>
+                <td><button type="button" class="btn btn-outline-success" onclick="editData({{$row->id}})">修改</button>
                     <button type="button" class="btn btn-outline-danger" onclick="deleteData({{$row->id}})">刪除</button>
                 </td>
             </tr>
@@ -28,6 +28,10 @@
         <script>
             function deleteData(id) {
                 window.location.href="{{route("deleteData")}}"+"?id="+id;
+            }
+
+            function editData(id) {
+                window.location.href="{{route("getEditPage")}}"+"?id="+id;
             }
         </script>
     </div>
