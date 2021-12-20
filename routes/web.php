@@ -20,6 +20,8 @@ Route::post('/create',[\App\Http\Controllers\toDoController::class,'storeCreateD
 
 Route::get('/delete',[\App\Http\Controllers\toDoController::class,'deleteData'])->name('deleteData');
 
+Route::get('/edit',[\App\Http\Controllers\toDoController::class,'getEditPage'])->name('getEditPage');
+Route::post('/edit',[\App\Http\Controllers\toDoController::class,'storeEditData'])->name('storeEditData');
 
 Route::get('/test',[\App\Http\Controllers\testController::class,'test']);
 
