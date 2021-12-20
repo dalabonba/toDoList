@@ -31,11 +31,12 @@ class toDoController extends Controller
 
         return view('pages.create');
     }
-    public function delete(Request $request)
+    public function deleteData(Request $request)
     {
-        $id=$request->delete_id;
+        $id=$request->get("id");
         DB::table('todos')
             ->where('id',$id)
             ->delete();
+        return redirect()->route("index");
     }
 }
